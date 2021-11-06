@@ -4,16 +4,14 @@
 import PropTypes from 'prop-types' //(stort cut impt)
 import Button from './Button'
 
-const Header = ({ title }) => {
-    const onClick = () => {
-        console.log('Click')
-    }
+const Header = ({ title, onAdd, showAdd }) => {
+ 
     return (
         <header className='header'>
             <h1>{title}</h1> 
             {/* we cut button from here and put it in it's own componet */}
-            <Button color='#4DA6FF' text='Add' onClick={onClick} />
-        
+            <Button color={showAdd ? 'red' : '#4DA6FF'} text={showAdd ? 'Close' : 'Add' }
+            onClick={onAdd} />
         </header>
     )
 }
