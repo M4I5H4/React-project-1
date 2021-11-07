@@ -26,8 +26,8 @@ const App = () => {
         "reminder": false
       }
 ])
-//Add task
-const addTask = (task) =>{
+//Add Task
+const addTask = (task) => {
 const id = Math.floor(Math.random() * 10000) + 1
 
 const newTask = { id, ...task }
@@ -52,8 +52,11 @@ setTasks(tasks.map((task) => task.id === id
       <Header onAdd={() => setShowAddTask
       (!showAddTask)} showAdd={showAddTask}/*I could assign props here for example title='Task Header'*//>
       {showAddTask && <AddTask onAdd={addTask}/>}
-      {tasks.length > 0 ? <Tasks tasks={tasks} onDelete={deleteTask} 
-      onToggle={toggleReminder} /> : 'Tasks Complete'}
+      {tasks.length > 0 ? (<Tasks tasks={tasks} onDelete={deleteTask} 
+      onToggle={toggleReminder} />
+      ) : (
+        'Tasks Complete'
+        )}
     </div>
   );
 }
